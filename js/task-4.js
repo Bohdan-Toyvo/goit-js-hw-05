@@ -3,13 +3,17 @@
 // Задача 4. Загальний баланс
 
 const getTotalBalanceByGender = (users, gender) => {
-  let totalBalance = 0;
-  users.forEach(user => {
-    if (user.gender === gender) {
-      totalBalance += user.balance;
-    }
-  });
-  return totalBalance;
+  // let totalBalance = 0;
+  // users.forEach(user => {
+  //   if (user.gender === gender) {
+  //     totalBalance += user.balance;
+  //   }
+  // });
+  // return totalBalance;
+
+  return users
+    .filter(user => user.gender === gender)
+    .reduce((totalBalance, user) => totalBalance + user.balance, 0);
 };
 
 const clients = [
